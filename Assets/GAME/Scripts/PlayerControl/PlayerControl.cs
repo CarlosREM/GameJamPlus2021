@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     //public ParticleSystem mouseFx;
     private bool canMove;
+    private bool showText = false;
     private Vector2 mousePosition;
-    public GameObject label;
+    public Text label;
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
-
+        
     }
 
 
@@ -46,14 +48,13 @@ public class PlayerControl : MonoBehaviour
             target.x = transform.position.x;
             target.y = transform.position.y;
 
-        }else if(collision.collider.tag == "NPC")
-        {
-            target.x = transform.position.x;
-            target.y = transform.position.y;
-            label.SetActive(true);
-            
         }
 
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
         
     }
 
