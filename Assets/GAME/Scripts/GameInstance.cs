@@ -8,6 +8,8 @@ public class GameInstance : MonoBehaviour
 
     public bool GameStart = false;
 
+    public int lastLevel = 0;
+
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameInstance");

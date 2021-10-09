@@ -51,6 +51,7 @@ public class OnMainLevelStart : MonoBehaviour
     {
         if (clickable && Input.GetMouseButtonDown(0))
         {
+            StopCoroutine(ShowUI());
             StartCoroutine(HideMenu());
             clickable = false;
         }
