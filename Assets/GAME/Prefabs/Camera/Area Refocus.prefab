@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6299125876830459258}
   - component: {fileID: 6299125876830459012}
   - component: {fileID: 6299125876830459259}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Area Refocus
   m_TagString: CamVolume
   m_Icon: {fileID: 0}
@@ -73,3 +73,4 @@ MonoBehaviour:
   type: 1
   focusOffset: {x: 0, y: 0}
   refocusDuration: 1
+  fitToSize: 0
