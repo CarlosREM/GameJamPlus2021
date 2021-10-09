@@ -15,6 +15,8 @@ public class RefocusVolume : MonoBehaviour
     [SerializeField] [Range(0.1f, 2f)]
     float refocusDuration = 1;
 
+    [SerializeField] bool fitToSize = false;
+
     BoxCollider2D volumeArea;
 
 
@@ -25,19 +27,21 @@ public class RefocusVolume : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision Detected");
         if (other.CompareTag("Player"))
         {
             RefocusCamera cam = Camera.main.GetComponent<RefocusCamera>();
 
+            float camSize = -1;
+            if (fitToSize)
+                camSize = volumeArea.size.y / 2;
+
             switch (type)
             {
                 case (RefocusType.Player):
-                    cam.Refocus(other.transform, focusOffset);
+                    cam.Refocus(other.transform, focusOffset, camSize, refocusDuration);
                     break;
 
                 case (RefocusType.Area):
-                    float camSize = volumeArea.size.y / 2;
                     cam.Refocus(this.transform, focusOffset, camSize, refocusDuration);
                     break;
             }
