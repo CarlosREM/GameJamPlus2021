@@ -9,7 +9,6 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     //public ParticleSystem mouseFx;
     private bool canMove;
-    private bool showText = false;
     private Vector2 mousePosition;
 
     [SerializeField] bool noInput = false;
@@ -19,6 +18,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        target = transform.position;
         animator = GetComponent<Animator>();
     }
 
@@ -39,26 +39,25 @@ public class PlayerControl : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 100);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10);
 
-        if (Vector2.Equals((Vector2) transform.position, target))
+        if (Equals((Vector2) transform.position, target))
         {
             animator.SetBool("isMoving", false);
         }
     }
 
+    public void SetTarget(Vector2 newTarget)
+    {
+        target = newTarget;
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Choca con algo");
-
         if (collision.collider.tag == "Obstacle")
         {
-            Debug.Log("Choca con obstaculo");
-
-            target.x = transform.position.x;
-            target.y = transform.position.y;
-
+            target = transform.position;
         }
 
         
