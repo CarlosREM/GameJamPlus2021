@@ -7,6 +7,7 @@ TagManager:
   - CamVolume
   - GameInstance
   - PostProcessingGlobal
+  - Obstacle
   layers:
   - Default
   - TransparentFX
