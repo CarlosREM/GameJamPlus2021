@@ -8,6 +8,7 @@ TagManager:
   - GameInstance
   - PostProcessingGlobal
   - Obstacle
+  - Interactable
   layers:
   - Default
   - TransparentFX
