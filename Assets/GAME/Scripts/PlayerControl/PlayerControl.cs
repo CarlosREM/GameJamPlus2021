@@ -5,35 +5,46 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Vector2 target;
     public float speed;
     //public ParticleSystem mouseFx;
     private bool canMove;
     private bool showText = false;
     private Vector2 mousePosition;
-    public Text label;
+
+    [SerializeField] bool noInput = false;
+
+    Animator animator;
+    [SerializeField] SpriteRenderer characterSprite;
 
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        if (!noInput && Input.GetMouseButtonDown(0))
         {
             target = new Vector2(mousePosition.x,mousePosition.y);
+
+            animator.SetBool("isMoving", true);
+
             //mouseFx.transform.position = target;
             //mouseFx.Play();
 
+            characterSprite.flipX = target.x < transform.position.x;
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
-        
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 100);
+
+        if (Vector2.Equals((Vector2) transform.position, target))
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 
 
