@@ -19,7 +19,7 @@ public class DoorObject : InteractableObject
         audioSource = GetComponent<AudioSource>();
     }
 
-    protected override void Interaction()
+    protected override void DoSequence()
     {
         Debug.Log("door...");
 
@@ -39,7 +39,8 @@ public class DoorObject : InteractableObject
                 player.GetComponent<PlayerControl>().characterSprite.flipX = !flipX;
             }
         }
-        canInteract = true;
+
+        EndSequence();
     }
 
 }

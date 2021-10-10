@@ -8,7 +8,7 @@ public class DialogueEvent : MonoBehaviour
 {
     public Animator player;
     private DialogueButton next;
-    public TMPro.TextMeshProUGUI dial;
+    public TMPro.TextMeshProUGUI dialogueUI;
     public string[] dialogues;
     public int dialogueNum = 0;
     public bool seen = false;
@@ -17,8 +17,7 @@ public class DialogueEvent : MonoBehaviour
 
     private void Start()
     {
-        next = dial.transform.Find("Next").GetComponent<DialogueButton>();
-        next.SetEvent(this);
+        next = dialogueUI.transform.Find("Next").GetComponent<DialogueButton>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,10 +31,11 @@ public class DialogueEvent : MonoBehaviour
 
     public void StartDialogue()
     {
-        dial.gameObject.SetActive(true);
+        dialogueUI.gameObject.SetActive(true);
         next.gameObject.SetActive(true);
         player.SetBool("InputEnabled", false);
-        dial.text = dialogues[0];
+        dialogueUI.text = dialogues[0];
+        next.SetEvent(this);
     }
 
     public void nextDialogue()
@@ -44,18 +44,18 @@ public class DialogueEvent : MonoBehaviour
         if (dialogueNum == dialogues.Length)
         {
             player.SetBool("InputEnabled", true);
-            dial.gameObject.SetActive(false);
+            dialogueUI.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
             seen = true;
         }
         else if (dialogueNum == dialogues.Length + 1)
         {
             dialogueNum = 1;
-            dial.text = dialogues[dialogueNum];
+            dialogueUI.text = dialogues[dialogueNum];
         }
         else if (dialogueNum < dialogues.Length)
         {
-            dial.text = dialogues[dialogueNum];
+            dialogueUI.text = dialogues[dialogueNum];
         }
 
     }

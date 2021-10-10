@@ -11,7 +11,7 @@ public class Interactions : InteractableObject
     public string[] dialogues;
     public int dialogueNum = 0;
 
-    protected override void Interaction()
+    protected override void DoSequence()
     {
         dial.gameObject.SetActive(true);
         next.gameObject.SetActive(true);
@@ -29,6 +29,7 @@ public class Interactions : InteractableObject
             dial.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
 
+            EndSequence();
         }
         else if(dialogueNum == dialogues.Length+1)
         {

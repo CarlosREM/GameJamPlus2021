@@ -75,16 +75,21 @@ public class InteractableObject : MonoBehaviour
         if (playerHere)
         {
             canInteract = false;
-            Interaction();
+            DoSequence();
         }
         yield return null;
     }
 
-    protected virtual void Interaction()
+
+    protected virtual void DoSequence()
     {
-        Debug.Log("Interacting...");
+        Debug.Log("This is a sequence");
+        EndSequence();
+    }
+
+    protected virtual void EndSequence()
+    {
         canInteract = true;
     }
 
-    
 }

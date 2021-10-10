@@ -16,12 +16,7 @@ public class FrameInteractable : InteractableObject
         frameDiagEvent = GetComponent<DialogueEvent>();
     }
 
-    protected override void Interaction()
-    {
-        DoSequence();
-    }
-
-    protected void DoSequence()
+    protected override void DoSequence()
     {
         frameDiagEvent.StartDialogue();
         StartCoroutine(checkDialogEnd());
@@ -29,21 +24,20 @@ public class FrameInteractable : InteractableObject
 
     IEnumerator checkDialogEnd()
     {
-        Debug.Log("Imma check when the dialog ends...");
         while (!frameDiagEvent.seen)
         {
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log("It ended");
 
         EndSequence();
     }
 
-    protected void EndSequence()
+    protected override void EndSequence()
     {
+        base.EndSequence();
+
         GameObject.Find("Scene Manager").GetComponent<TransitionManager>()
         .ChangeScene(levelName);
-        canInteract = true;
     }
 
 }
