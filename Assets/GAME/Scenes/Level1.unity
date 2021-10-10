@@ -1711,7 +1711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 363497686808407440, guid: a235f7f935595bb4a88c4b8556f2c1de, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 363497686808407440, guid: a235f7f935595bb4a88c4b8556f2c1de, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1920,7 +1920,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &763166489
 Transform:
   m_ObjectHideFlags: 0
@@ -1933,7 +1933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &763166490
 MonoBehaviour:
@@ -1980,7 +1980,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763166488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2abb99c37f218f847b18fa75219f3419, type: 3}
   m_Name: 
@@ -2002,7 +2002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 363497686808407440, guid: a235f7f935595bb4a88c4b8556f2c1de, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 363497686808407440, guid: a235f7f935595bb4a88c4b8556f2c1de, type: 3}
       propertyPath: m_AnchorMax.x
