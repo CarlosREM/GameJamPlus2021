@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: levelsPassed
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833089, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: m_Name
@@ -1280,6 +1280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2264312116653114125, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2264312116653114127, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1323,6 +1327,14 @@ PrefabInstance:
     - target: {fileID: 2264312116653114127, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264312116751320420, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264312117496998167, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2264312117496998167, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
       propertyPath: m_IsActive
