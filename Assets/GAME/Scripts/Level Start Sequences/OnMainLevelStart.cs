@@ -34,7 +34,7 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] Transform[] paintingsArray;
 
     [Header("Thought Arrays")]
-    [SerializeField] GameObject[] thoughtsBegin;
+    [SerializeField] GameObject thoughtsBegin;
     [SerializeField] GameObject[] thoughts1Fails;
     [SerializeField] GameObject[] thoughts1Completed;
 
@@ -167,8 +167,6 @@ public class OnMainLevelStart : MonoBehaviour
         {
             case 1:
                 newPosition = paintingsArray[0].position;
-                foreach (GameObject thoughtObject in thoughtsBegin)
-                    thoughtObject.SetActive(false);
                 if (instance.levelsPassed == 1 && !instance.seenCinematics[0])
                 {
                     baul.SetActive(true);
@@ -176,9 +174,8 @@ public class OnMainLevelStart : MonoBehaviour
                 }
                 break;
             case 2:
-                //newPosition = paintingsArray[0].position;
-                //foreach (GameObject thoughtObject in thoughtsBegin)
-                //    thoughtObject.SetActive(false);
+                //newPosition = paintingsArray[1].position;
+
                 if (instance.levelsPassed == 2 && !instance.seenCinematics[1])
                 {
                     inventoryMain.isFull[0] = true;
@@ -189,6 +186,7 @@ public class OnMainLevelStart : MonoBehaviour
                 }
                 break;
             default:
+                thoughtsBegin.SetActive(true);
                 Debug.Log("Last level invalid");
                 instance.lastLevel = 0;
                 break;
