@@ -18,17 +18,17 @@ public class InteractableObject : MonoBehaviour
         outlineRenderer.enabled = false;
     }
 
-    public void OnMouseEnter()
-    {
-        outlineRenderer.enabled = true;
-    }
-    public void OnMouseExit()
-    {
-        outlineRenderer.enabled = false;
-    }
+    //public void OnMouseEnter()
+    //{
+        //outlineRenderer.enabled = true;
+    //}
+    //public void OnMouseExit()
+    //{
+        //outlineRenderer.enabled = false;
+    //}
 
 
-    public void OnMouseDown()
+    public void OnMouseDownEvent()
     {
         StartCoroutine(SetPlayerTarget());
         StartCoroutine(PollPlayerPosition());

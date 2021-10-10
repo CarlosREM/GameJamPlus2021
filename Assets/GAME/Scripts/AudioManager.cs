@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
 
     public void FadeAudio(float duration, float minVol, float maxVol) {
-        Debug.Log("Fading the audio...");
         StartCoroutine(StartFade("volMaster", duration, minVol, maxVol));
     }
 

@@ -5,6 +5,9 @@ using TMPro;
 
 public class OnMainLevelStart : MonoBehaviour
 {
+    [Header("Player")]
+    [SerializeField] Animator playerAnim;
+
     [Header("Start UI")]
 
     [SerializeField] CanvasGroup canvas;
@@ -19,10 +22,10 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] float promptShowDelay;
     [SerializeField] float promptShowDuration;
 
-    [Header("On Click")]
+    [Header("On Menu Click")]
     [SerializeField] float fadeoutDuration = 1f;
     [SerializeField] float refocusDuration = 1f;
-
+    [SerializeField] float playerEnterDelay = 1f;
 
 
     void Start()
@@ -32,12 +35,14 @@ public class OnMainLevelStart : MonoBehaviour
 
         GameObject.FindWithTag("PostProcessingGlobal")
             .GetComponent<CameraEffects>()
-            .SetDepth(300, 0);
+            .SetDepth(130, 0);
 
         if (GameInstance.Instance.GameStart)
         {
             canvas.alpha = 1;
             GameInstance.Instance.GameStart = false;
+
+            playerAnim.SetTrigger("Sit");
             StartCoroutine(ShowUI());
         }
         else
@@ -98,6 +103,13 @@ public class OnMainLevelStart : MonoBehaviour
         canvas.alpha = 0;
 
         RemoveBlur();
+
+        yield return new WaitForSeconds(refocusDuration);
+
+        yield return new WaitForSeconds(playerEnterDelay);
+
+        playerAnim.SetTrigger("Getup");
+
         yield return null;
     }
 

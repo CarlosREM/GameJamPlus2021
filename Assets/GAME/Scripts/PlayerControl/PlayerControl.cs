@@ -8,7 +8,6 @@ public class PlayerControl : MonoBehaviour
     private Vector2 target;
     public float speed;
     //public ParticleSystem mouseFx;
-    private bool canMove;
     private Vector2 mousePosition;
 
     [SerializeField] bool noInput = false;
@@ -25,10 +24,9 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(mousePosition);
         if (!noInput && Input.GetMouseButtonDown(0))
         {
-            target = new Vector2(mousePosition.x,mousePosition.y);
+            target = mousePosition;
 
             animator.SetBool("isMoving", true);
 
@@ -39,6 +37,8 @@ public class PlayerControl : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
+
+        // para profundidad
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10);
 
         if (Equals((Vector2) transform.position, target))
