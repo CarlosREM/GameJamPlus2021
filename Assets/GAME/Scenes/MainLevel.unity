@@ -3229,6 +3229,10 @@ PrefabInstance:
       propertyPath: levelsPassed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
+      propertyPath: seenCinematics.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833089, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: m_Name
       value: Game Instance
