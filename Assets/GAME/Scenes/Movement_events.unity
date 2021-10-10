@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93441677bd89eab4886d779eed7ad7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: coin
   item: {fileID: 4849151869282490494, guid: 09f2b73a46d1e004bb4cea8225b66b1d, type: 3}
   speed: 0
 --- !u!61 &970622662
@@ -1070,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93441677bd89eab4886d779eed7ad7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: flower
   item: {fileID: 4849151869282490494, guid: 09f2b73a46d1e004bb4cea8225b66b1d, type: 3}
   speed: 0
 --- !u!1 &1781517697
@@ -1103,6 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93441677bd89eab4886d779eed7ad7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: key
   item: {fileID: 4849151869282490494, guid: 09f2b73a46d1e004bb4cea8225b66b1d, type: 3}
   speed: 0
 --- !u!61 &1781517699
@@ -1227,6 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93441677bd89eab4886d779eed7ad7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: ring
   item: {fileID: 4849151869282490494, guid: 09f2b73a46d1e004bb4cea8225b66b1d, type: 3}
   speed: 0
 --- !u!61 &1823899561
@@ -1771,3 +1775,8 @@ MonoBehaviour:
   - {fileID: 177947323}
   - {fileID: 1306209495}
   - {fileID: 787827861}
+  objNames:
+  - 
+  - 
+  - 
+  - 

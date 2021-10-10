@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     private Inventory inventory;
+    public string itemName;
     public GameObject item;
     private GameObject instanceItem;
     private Vector2 target;
@@ -30,6 +31,11 @@ public class PickUp : MonoBehaviour
                 Debug.Log("Triggered");
                 if (inventory.isFull[i] == false)
                 {
+                    inventory.objNames[i] = itemName;
+                    if (inventory.HasItem(itemName))
+                    {
+                        Debug.Log("Item found");
+                    }
                     inventory.isFull[i] = true;
                     Instantiate(item, inventory.slots[i].transform, false);
                     Destroy(gameObject);
