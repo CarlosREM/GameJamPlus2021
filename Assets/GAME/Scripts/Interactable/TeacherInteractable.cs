@@ -31,9 +31,18 @@ public class TeacherInteractable : InteractableObject
                 break;
             case 1:
                 currentDiagEvent.seen = false;
+                Inventory playerInv = GameObject.FindWithTag("Player").GetComponent<Inventory>();
+
+                if (playerInv.HasItem("stairs"))
+                {
+                    sequenceIndex++;
+                    currentDiagEvent = frameDiagEvents[2];
+                }
+
                 break;
         }
         currentDiagEvent.StartDialogue();
+
 
         StartCoroutine(checkDialogEnd());
     }
@@ -45,14 +54,13 @@ public class TeacherInteractable : InteractableObject
             yield return new WaitForEndOfFrame();
         }
 
+        if (sequenceIndex == 2)
+        {
+            GameObject.Find("Game Instance").GetComponent<GameInstance>().levelsPassed += 1;
+            GameObject.Find("Scene Manager").GetComponent<TransitionManager>().ChangeScene("MainLevel");
+        }
+
         EndSequence();
     }
-
-    protected override void EndSequence()
-    {
-
-        base.EndSequence();
-    }
-
 
 }
