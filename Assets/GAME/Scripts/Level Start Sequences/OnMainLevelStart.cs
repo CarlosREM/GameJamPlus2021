@@ -38,6 +38,12 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] GameObject[] thoughts1Fails;
     [SerializeField] GameObject[] thoughts1Completed;
 
+    [Header("Player Stuff")]
+    [SerializeField] GameObject baul;
+    [SerializeField] GameObject photo;
+    [SerializeField] GameObject[] icons;
+    [SerializeField] Inventory inventoryMain;
+
     void Start()
     {
         title.alpha = 0;
@@ -60,13 +66,14 @@ public class OnMainLevelStart : MonoBehaviour
             playerAnim.SetBool("InputEnabled", false);
             playerAnim.SetTrigger("Sit");
             StartCoroutine(ShowUI());
+            //PreviousLevelAction(instance);
         }
         else
         {
             canvas.alpha = 0;
             RemoveBlur();
             CenterCamera();
-            PreviousLevelLocation(instance);
+            PreviousLevelAction(instance);
             StartCoroutine(ShowInventory());
         }
     }
@@ -152,7 +159,7 @@ public class OnMainLevelStart : MonoBehaviour
     }
 
 
-    void PreviousLevelLocation(GameInstance instance)
+    void PreviousLevelAction(GameInstance instance)
     {
         Debug.Log(instance.lastLevel);
         Vector3 newPosition = Vector3.zero;
@@ -162,8 +169,25 @@ public class OnMainLevelStart : MonoBehaviour
                 newPosition = paintingsArray[0].position;
                 foreach (GameObject thoughtObject in thoughtsBegin)
                     thoughtObject.SetActive(false);
+                if (instance.levelsPassed == 1 && !instance.seenCinematics[0])
+                {
+                    baul.SetActive(true);
+                    instance.seenCinematics[0] = true;
+                }
                 break;
-
+            case 2:
+                //newPosition = paintingsArray[0].position;
+                //foreach (GameObject thoughtObject in thoughtsBegin)
+                //    thoughtObject.SetActive(false);
+                if (instance.levelsPassed == 2 && !instance.seenCinematics[1])
+                {
+                    inventoryMain.isFull[0] = true;
+                    inventoryMain.objNames[0] = "baul";
+                    Instantiate(icons[0], inventoryMain.slots[0].transform, false);
+                    photo.SetActive(true);
+                    instance.seenCinematics[1] = true;
+                }
+                break;
             default:
                 Debug.Log("Last level invalid");
                 instance.lastLevel = 0;

@@ -17,6 +17,7 @@ public class FrameInteractable : InteractableObject
         frameDiagEvents = GetComponents<DialogueEvent>();
     }
 
+
     protected override void DoSequence()
     {
         GameInstance instance = GameObject.Find("Game Instance").GetComponent<GameInstance>();
