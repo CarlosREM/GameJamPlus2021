@@ -9,6 +9,7 @@ public class BagPassword : MonoBehaviour
     public int[] codesInt;
     public int[] relativeCodes;
     public TMPro.TextMeshProUGUI[] numbers;
+    public string levelName;
 
 
     // Start is called before the first frame update
@@ -81,7 +82,8 @@ public class BagPassword : MonoBehaviour
         Debug.Log(currentPassword);
         if (currentPassword == password)
         {
-            Debug.Log("Desbloqueado");
+            GameObject.Find("Scene Manager").GetComponent<TransitionManager>()
+        .ChangeScene(levelName);
         }
     }
 }
