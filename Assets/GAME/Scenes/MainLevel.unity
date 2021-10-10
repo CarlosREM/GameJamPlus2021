@@ -1481,8 +1481,8 @@ GameObject:
   - component: {fileID: 1442810827}
   - component: {fileID: 1442810826}
   - component: {fileID: 1442810825}
-  - component: {fileID: 1442810824}
   - component: {fileID: 1442810828}
+  - component: {fileID: 1442810824}
   m_Layer: 0
   m_Name: Baul
   m_TagString: Untagged
@@ -1504,7 +1504,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: baul
   item: {fileID: 4849151869282490494, guid: 952c2588fedd45f4db2fafc350cb885f, type: 3}
-  speed: 0
 --- !u!61 &1442810825
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1610,9 +1609,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1955504782}
   dialogueUI: {fileID: 1805219948}
-  dialogues: []
+  dialogues:
+  - "It\u2019s\u2026 a box alright"
+  - "Hm. It\u2019s locked"
+  - Ah, I see, it is not opened with a key, but rather a 3 digit numeric code
+  - "I don\u2019t have an inkling of a clue as to what it could be"
   dialogueNum: 0
   seen: 0
+  destroyObject: 1
   isTrigger: 1
 --- !u!1 &1448870091
 GameObject:
@@ -1648,7 +1652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: photo
   item: {fileID: 4849151869282490494, guid: ca15ba591a83d194ca5dd467f508b14c, type: 3}
-  speed: 0
 --- !u!61 &1448870093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1754,9 +1757,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1955504782}
   dialogueUI: {fileID: 1805219948}
-  dialogues: []
+  dialogues:
+  - "A picture\u2026. and a slip of paper"
+  - A date?
+  - What could have possibly happened on such a date?
+  - "This picture\u2026"
   dialogueNum: 0
   seen: 0
+  destroyObject: 1
   isTrigger: 1
 --- !u!1 &1476054278 stripped
 GameObject:
@@ -2461,6 +2469,7 @@ MonoBehaviour:
   - "With more colors of paint, I\u2019m sure it can be improved on"
   dialogueNum: 0
   seen: 0
+  destroyObject: 0
   isTrigger: 0
 --- !u!1001 &1930765433
 PrefabInstance:
@@ -3023,6 +3032,10 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 1805219948}
+    - target: {fileID: 5614583120380829952, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
+      propertyPath: destroyObject
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5614583120380829965, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
       propertyPath: m_Name
       value: Awake
@@ -3191,11 +3204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: lastLevel
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: levelsPassed
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833089, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: m_Name

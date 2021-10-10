@@ -13,6 +13,8 @@ public class DialogueEvent : MonoBehaviour
     public int dialogueNum = 0;
     public bool seen = false;
 
+    public bool destroyObject = false; 
+
     [SerializeField] bool isTrigger = false;
 
     private void Start()
@@ -47,6 +49,10 @@ public class DialogueEvent : MonoBehaviour
             dialogueUI.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
             seen = true;
+            if (destroyObject)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (dialogueNum == dialogues.Length + 1)
         {

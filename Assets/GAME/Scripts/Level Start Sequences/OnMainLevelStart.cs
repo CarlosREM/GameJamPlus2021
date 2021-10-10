@@ -169,21 +169,23 @@ public class OnMainLevelStart : MonoBehaviour
                 newPosition = paintingsArray[0].position;
                 foreach (GameObject thoughtObject in thoughtsBegin)
                     thoughtObject.SetActive(false);
-                if (instance.levelsPassed == 1)
+                if (instance.levelsPassed == 1 && !instance.seenCinematics[0])
                 {
                     baul.SetActive(true);
+                    instance.seenCinematics[0] = true;
                 }
                 break;
             case 2:
-                newPosition = paintingsArray[0].position;
-                foreach (GameObject thoughtObject in thoughtsBegin)
-                    thoughtObject.SetActive(false);
-                if (instance.levelsPassed == 2)
+                //newPosition = paintingsArray[0].position;
+                //foreach (GameObject thoughtObject in thoughtsBegin)
+                //    thoughtObject.SetActive(false);
+                if (instance.levelsPassed == 2 && !instance.seenCinematics[1])
                 {
                     inventoryMain.isFull[0] = true;
                     inventoryMain.objNames[0] = "baul";
                     Instantiate(icons[0], inventoryMain.slots[0].transform, false);
                     photo.SetActive(true);
+                    instance.seenCinematics[1] = true;
                 }
                 break;
             default:

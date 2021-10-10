@@ -10,6 +10,8 @@ public class GameInstance : MonoBehaviour
 
     public int levelsPassed = 0;
 
+    public bool[] seenCinematics = { false, false };
+
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameInstance");
