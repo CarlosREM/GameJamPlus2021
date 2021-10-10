@@ -11,6 +11,7 @@ public class CheckProps : MonoBehaviour
 
     void Start()
     {
+        gameStats = GameObject.Find("Game Instance").GetComponent<GameInstance>();
         Debug.Log(gameStats.levelsPassed);
         if(gameStats.levelsPassed == 1)
         {

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GAME/Scenes/Level1.unity
     guid: 75ff3823d36785049a5fa277c22452d2
+  - enabled: 1
+    path: Assets/GAME/Scenes/BagScene.unity
+    guid: f5df85e00e15fc740a382b4628d34474
   m_configObjects: {}

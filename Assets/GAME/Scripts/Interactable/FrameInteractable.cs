@@ -16,6 +16,7 @@ public class FrameInteractable : InteractableObject
         frameDiagEvent = GetComponent<DialogueEvent>();
     }
 
+
     protected override void DoSequence()
     {
         frameDiagEvent.StartDialogue();
