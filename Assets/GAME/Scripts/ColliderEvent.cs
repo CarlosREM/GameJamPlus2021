@@ -3,22 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FrameInteractable : InteractableObject
-{
 
-    [SerializeField] string levelName;
+public class ColliderEvent : MonoBehaviour
+{
     public Animator player;
     public Button next;
     public TMPro.TextMeshProUGUI dial;
     public string[] dialogues;
     public int dialogueNum = 0;
+    bool seen = false;
 
-    protected override void Interaction()
+    void Start()
     {
-        dial.gameObject.SetActive(true);
-        next.gameObject.SetActive(true);
-        player.SetBool("InputEnabled", false);
-        dial.text = dialogues[0];
+        
+    }
+
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (seen == false)
+        {
+            dial.gameObject.SetActive(true);
+            next.gameObject.SetActive(true);
+            player.SetBool("InputEnabled", false);
+            dial.text = dialogues[0];
+            seen = true;
+        }
+
     }
 
     public void nextDialogue()
@@ -29,9 +44,12 @@ public class FrameInteractable : InteractableObject
             player.SetBool("InputEnabled", true);
             dial.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
-            GameObject.Find("Scene Manager").GetComponent<TransitionManager>()
-            .ChangeScene(levelName);
 
+        }
+        else if (dialogueNum == dialogues.Length + 1)
+        {
+            dialogueNum = 1;
+            dial.text = dialogues[dialogueNum];
         }
         else if (dialogueNum < dialogues.Length)
         {
@@ -39,5 +57,4 @@ public class FrameInteractable : InteractableObject
         }
 
     }
-
 }
