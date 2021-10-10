@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
 
         }else if (Time.time > levelTime)
         {
-            Debug.Log("Se acaba el tiempo");
+            GameObject.Find("Scene Manager").GetComponent<TransitionManager>().ChangeScene("MainLevel");
         }
     }
 }

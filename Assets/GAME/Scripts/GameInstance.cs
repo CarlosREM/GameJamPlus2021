@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameInstance : MonoBehaviour
 {
-    public static GameInstance Instance { get; private set; }
-
     public bool GameStart = false;
 
     public int lastLevel = 0;
@@ -20,6 +18,5 @@ public class GameInstance : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
-        GameInstance.Instance = this;
     }
 }
