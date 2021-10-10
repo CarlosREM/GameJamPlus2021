@@ -4,36 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ColliderEvent : MonoBehaviour
+public class DialogueEvent : MonoBehaviour
 {
     public Animator player;
-    public Button next;
+    private DialogueButton next;
     public TMPro.TextMeshProUGUI dial;
     public string[] dialogues;
     public int dialogueNum = 0;
-    bool seen = false;
+    public bool seen = false;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] bool isTrigger = false;
 
-    void Update()
+    private void Start()
     {
-        
+        next = dial.transform.Find("Next").GetComponent<DialogueButton>();
+        next.SetEvent(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (seen == false)
+        if (isTrigger && seen == false)
         {
-            dial.gameObject.SetActive(true);
-            next.gameObject.SetActive(true);
-            player.SetBool("InputEnabled", false);
-            dial.text = dialogues[0];
-            seen = true;
+            player.GetComponent<PlayerControl>().SetTarget(collision.transform.position);
+            StartDialogue();
         }
+    }
 
+    public void StartDialogue()
+    {
+        dial.gameObject.SetActive(true);
+        next.gameObject.SetActive(true);
+        player.SetBool("InputEnabled", false);
+        dial.text = dialogues[0];
     }
 
     public void nextDialogue()
@@ -44,7 +46,7 @@ public class ColliderEvent : MonoBehaviour
             player.SetBool("InputEnabled", true);
             dial.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
-
+            seen = true;
         }
         else if (dialogueNum == dialogues.Length + 1)
         {

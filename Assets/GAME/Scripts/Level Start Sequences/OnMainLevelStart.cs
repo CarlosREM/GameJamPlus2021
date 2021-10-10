@@ -27,18 +27,28 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] float refocusDuration = 1f;
     [SerializeField] float playerEnterDelay = 1f;
     [SerializeField] Vector2 offsetOnPlay = Vector2.zero;
+    [SerializeField] CanvasGroup InventoryUI;
+    [SerializeField] float InventoryShowTime;
 
     [Header("Paintings")]
     [SerializeField] Transform[] paintingsArray;
+
+    [Header("Thought Arrays")]
+    [SerializeField] GameObject[] thoughtsBegin;
+    [SerializeField] GameObject[] thoughts1Fails;
+    [SerializeField] GameObject[] thoughts1Completed;
 
     void Start()
     {
         title.alpha = 0;
         promptIcon.alpha = 0;
 
+        InventoryUI.alpha = 0;
+
         GameObject.FindWithTag("PostProcessingGlobal")
             .GetComponent<CameraEffects>()
             .SetDepth(130, 0);
+
 
         GameInstance instance = GameObject.Find("Game Instance").GetComponent<GameInstance>();
         if (instance.GameStart)
@@ -57,6 +67,7 @@ public class OnMainLevelStart : MonoBehaviour
             RemoveBlur();
             CenterCamera();
             PreviousLevelLocation(instance);
+            StartCoroutine(ShowInventory());
         }
     }
 
@@ -121,6 +132,8 @@ public class OnMainLevelStart : MonoBehaviour
         CenterCamera();
         InteractableObject.canInteract = true;
 
+        StartCoroutine(ShowInventory());
+
         yield return null;
     }
 
@@ -147,6 +160,8 @@ public class OnMainLevelStart : MonoBehaviour
         {
             case 1:
                 newPosition = paintingsArray[0].position;
+                foreach (GameObject thoughtObject in thoughtsBegin)
+                    thoughtObject.SetActive(false);
                 break;
 
             default:
@@ -157,5 +172,19 @@ public class OnMainLevelStart : MonoBehaviour
         PlayerControl player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         player.transform.position = newPosition;
         player.SetTarget(newPosition);
+    }
+
+    IEnumerator ShowInventory()
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            InventoryUI.alpha = t / InventoryShowTime;
+            t += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        InventoryUI.alpha = 1;
+
+        yield return null;
     }
 }

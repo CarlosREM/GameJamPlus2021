@@ -8,36 +8,42 @@ public class FrameInteractable : InteractableObject
 
     [SerializeField] string levelName;
     public Animator player;
-    public Button next;
-    public TMPro.TextMeshProUGUI dial;
-    public string[] dialogues;
-    public int dialogueNum = 0;
+    DialogueEvent frameDiagEvent;
+
+    public new void Start()
+    {
+        base.Start();
+        frameDiagEvent = GetComponent<DialogueEvent>();
+    }
 
     protected override void Interaction()
     {
-        dial.gameObject.SetActive(true);
-        next.gameObject.SetActive(true);
-        player.SetBool("InputEnabled", false);
-        dial.text = dialogues[0];
+        DoSequence();
     }
 
-    public void nextDialogue()
+    protected void DoSequence()
     {
-        dialogueNum++;
-        if (dialogueNum == dialogues.Length)
-        {
-            player.SetBool("InputEnabled", true);
-            dial.gameObject.SetActive(false);
-            next.gameObject.SetActive(false);
-            GameObject.Find("Scene Manager").GetComponent<TransitionManager>()
-            .ChangeScene(levelName);
+        frameDiagEvent.StartDialogue();
+        StartCoroutine(checkDialogEnd());
+    }
 
-        }
-        else if (dialogueNum < dialogues.Length)
+    IEnumerator checkDialogEnd()
+    {
+        Debug.Log("Imma check when the dialog ends...");
+        while (!frameDiagEvent.seen)
         {
-            dial.text = dialogues[dialogueNum];
+            yield return new WaitForEndOfFrame();
         }
+        Debug.Log("It ended");
 
+        EndSequence();
+    }
+
+    protected void EndSequence()
+    {
+        GameObject.Find("Scene Manager").GetComponent<TransitionManager>()
+        .ChangeScene(levelName);
+        canInteract = true;
     }
 
 }

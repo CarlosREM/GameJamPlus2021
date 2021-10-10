@@ -12,7 +12,7 @@ public class DoorObject : InteractableObject
 
     AudioSource audioSource;
 
-    void Start()
+    new void Start()
     {
         base.Start();
 

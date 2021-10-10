@@ -83,6 +83,7 @@ public class InteractableObject : MonoBehaviour
     protected virtual void Interaction()
     {
         Debug.Log("Interacting...");
+        canInteract = true;
     }
 
     
