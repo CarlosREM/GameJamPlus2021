@@ -22,14 +22,16 @@ public class InteractableObject : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        outlineRenderer.gameObject.SetActive(true);
+        if (canInteract)
+        {
+            outlineRenderer.gameObject.SetActive(true);
+        }
     }
     public void OnMouseExit()
     {
-        if (canInteract)
-        {
-            outlineRenderer.gameObject.SetActive(false);
-        }
+
+        outlineRenderer.gameObject.SetActive(false);
+       
     }
 
     public void OnMouseDown()
