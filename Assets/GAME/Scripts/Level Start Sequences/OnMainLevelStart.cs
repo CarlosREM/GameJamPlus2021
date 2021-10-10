@@ -177,6 +177,8 @@ public class OnMainLevelStart : MonoBehaviour
             player.SetTarget(newPosition);
         }
 
+        InteractableObject.canInteract = true;
+
     }
 
     IEnumerator ShowInventory()

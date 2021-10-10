@@ -8,23 +8,30 @@ public class FrameInteractable : InteractableObject
 
     [SerializeField] string levelName;
     public Animator player;
-    DialogueEvent frameDiagEvent;
+    DialogueEvent[] frameDiagEvents;
+    DialogueEvent diagEvent;
 
     public new void Start()
     {
         base.Start();
-        frameDiagEvent = GetComponent<DialogueEvent>();
+        frameDiagEvents = GetComponents<DialogueEvent>();
     }
 
     protected override void DoSequence()
     {
-        frameDiagEvent.StartDialogue();
+        GameInstance instance = GameObject.Find("Game Instance").GetComponent<GameInstance>();
+
+        diagEvent = frameDiagEvents[0];
+        if (instance.lastLevel == 1)
+            diagEvent = frameDiagEvents[1];
+
+        diagEvent.StartDialogue();
         StartCoroutine(checkDialogEnd());
     }
 
     IEnumerator checkDialogEnd()
     {
-        while (!frameDiagEvent.seen)
+        while (!diagEvent.seen)
         {
             yield return new WaitForEndOfFrame();
         }

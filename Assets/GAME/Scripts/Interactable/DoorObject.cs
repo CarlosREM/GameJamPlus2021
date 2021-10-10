@@ -8,6 +8,9 @@ public class DoorObject : InteractableObject
     [SerializeField] Transform travelPosition;
     [SerializeField] bool FlipXOnTravel = false;
 
+    [SerializeField] AudioClip openSound;
+    [SerializeField] AudioClip lockedSound;
+
     public bool locked = false;
 
     AudioSource audioSource;
@@ -21,8 +24,6 @@ public class DoorObject : InteractableObject
 
     protected override void DoSequence()
     {
-        Debug.Log("door...");
-
         if (!locked)
         {
             PlayerControl player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
@@ -31,14 +32,20 @@ public class DoorObject : InteractableObject
 
             player.SetTarget(travelPosition.position);
 
-            audioSource.Play();
-
             if (FlipXOnTravel)
             {
                 bool flipX = player.characterSprite.flipX;
                 player.GetComponent<PlayerControl>().characterSprite.flipX = !flipX;
             }
+
+            audioSource.clip = openSound;
         }
+        else
+        {
+            audioSource.clip = lockedSound;
+        }
+
+        audioSource.Play();
 
         EndSequence();
     }

@@ -75,6 +75,7 @@ public class InteractableObject : MonoBehaviour
         if (playerHere)
         {
             canInteract = false;
+            outlineRenderer.gameObject.SetActive(false);
             DoSequence();
         }
         yield return null;

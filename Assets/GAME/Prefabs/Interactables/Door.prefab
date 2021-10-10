@@ -158,6 +158,8 @@ MonoBehaviour:
   playerCheckTimeWindow: 5
   travelPosition: {fileID: 0}
   FlipXOnTravel: 0
+  openSound: {fileID: 8300000, guid: 3f6ff4a889009794dab870b2829b60d5, type: 3}
+  lockedSound: {fileID: 8300000, guid: 763fbfa3cbfac63428f1c153ef752eb3, type: 3}
   locked: 0
 --- !u!82 &1563164230900400122
 AudioSource:

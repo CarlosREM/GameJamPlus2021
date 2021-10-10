@@ -29,6 +29,9 @@ public class TeacherInteractable : InteractableObject
                 classDoor.locked = false;
                 sequenceIndex++;
                 break;
+            case 1:
+                currentDiagEvent.seen = false;
+                break;
         }
         currentDiagEvent.StartDialogue();
 

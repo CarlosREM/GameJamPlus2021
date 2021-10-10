@@ -1983,6 +1983,25 @@ MonoBehaviour:
   dialogueNum: 0
   seen: 0
   isTrigger: 0
+--- !u!114 &1899729910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899729906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2630d43260f7cb6489a2aeb51e871687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1955504782}
+  dialogueUI: {fileID: 1124767340}
+  dialogues:
+  - This painting... I've seen it before
+  dialogueNum: 0
+  seen: 0
+  isTrigger: 0
 --- !u!1001 &1930765433
 PrefabInstance:
   m_ObjectHideFlags: 0
