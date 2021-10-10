@@ -166,12 +166,17 @@ public class OnMainLevelStart : MonoBehaviour
 
             default:
                 Debug.Log("Last level invalid");
+                instance.lastLevel = 0;
                 break;
         }
 
-        PlayerControl player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
-        player.transform.position = newPosition;
-        player.SetTarget(newPosition);
+        if (newPosition != Vector3.zero)
+        {
+            PlayerControl player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+            player.transform.position = newPosition;
+            player.SetTarget(newPosition);
+        }
+
     }
 
     IEnumerator ShowInventory()
