@@ -662,11 +662,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7ba0208adf5c334b8729919b3935865, type: 3}
---- !u!1 &574000267 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5614583120380829965, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
-  m_PrefabInstance: {fileID: 1633467133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &743404077 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8647713034069723400, guid: d7ba0208adf5c334b8729919b3935865, type: 3}
@@ -1126,11 +1121,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5614583120380829967, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
   m_PrefabInstance: {fileID: 1633467133}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1111700958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5614583120380829965, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
-  m_PrefabInstance: {fileID: 489896183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1124767340 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2852996697431645201, guid: 82d651dd9ee13d04cbb548707fa0ecc7, type: 3}
@@ -1206,10 +1196,7 @@ MonoBehaviour:
   InventoryShowTime: 1
   paintingsArray:
   - {fileID: 102886196}
-  thoughtsBegin:
-  - {fileID: 1476054278}
-  - {fileID: 574000267}
-  - {fileID: 1111700958}
+  thoughtsBegin: {fileID: 0}
   thoughts1Fails: []
   thoughts1Completed: []
   baul: {fileID: 1442810823}
@@ -1504,6 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: baul
   item: {fileID: 4849151869282490494, guid: 952c2588fedd45f4db2fafc350cb885f, type: 3}
+  destroyObj: 0
 --- !u!61 &1442810825
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1652,6 +1640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: photo
   item: {fileID: 4849151869282490494, guid: ca15ba591a83d194ca5dd467f508b14c, type: 3}
+  destroyObj: 0
 --- !u!61 &1448870093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1766,11 +1755,6 @@ MonoBehaviour:
   seen: 0
   destroyObject: 1
   isTrigger: 1
---- !u!1 &1476054278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5614583120380829965, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
-  m_PrefabInstance: {fileID: 5614583119284272600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1498151054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5614583120380829967, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
@@ -2489,6 +2473,7 @@ MonoBehaviour:
   - This painting... I've seen it before
   dialogueNum: 0
   seen: 0
+  destroyObject: 0
   isTrigger: 0
 --- !u!1001 &1930765433
 PrefabInstance:
@@ -3219,19 +3204,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: GameStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: lastLevel
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: levelsPassed
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: seenCinematics.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833089, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: m_Name
