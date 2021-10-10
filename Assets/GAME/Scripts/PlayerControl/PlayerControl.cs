@@ -41,7 +41,6 @@ public class PlayerControl : MonoBehaviour
         if (collision.collider.tag == "Obstacle")
         {
             Debug.Log("Choca con obstaculo");
-
             target.x = transform.position.x;
             target.y = transform.position.y;
 
