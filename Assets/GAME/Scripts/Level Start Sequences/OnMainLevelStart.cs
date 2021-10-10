@@ -38,10 +38,12 @@ public class OnMainLevelStart : MonoBehaviour
             .GetComponent<CameraEffects>()
             .SetDepth(130, 0);
 
-        if (GameInstance.Instance.GameStart)
+        GameInstance instance = GameObject.Find("Game Instance").GetComponent<GameInstance>();
+        if (instance.GameStart)
         {
             canvas.alpha = 1;
-            GameInstance.Instance.GameStart = false;
+            instance.GameStart = false;
+            InteractableObject.canInteract = false;
             
             playerAnim.SetBool("InputEnabled", false);
             playerAnim.SetTrigger("Sit");
@@ -114,6 +116,7 @@ public class OnMainLevelStart : MonoBehaviour
         playerAnim.SetTrigger("Getup");
         playerAnim.SetBool("InputEnabled", true);
         CenterCamera();
+        InteractableObject.canInteract = true;
 
         yield return null;
     }

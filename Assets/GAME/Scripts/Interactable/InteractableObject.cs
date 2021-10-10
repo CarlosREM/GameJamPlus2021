@@ -10,6 +10,8 @@ public class InteractableObject : MonoBehaviour
 
     [SerializeField] float playerCheckTimeWindow = 5f;
 
+    public static bool canInteract = true;
+
     public void Start()
     {
         transform.position = new Vector3(transform.position.x,
@@ -21,26 +23,22 @@ public class InteractableObject : MonoBehaviour
     public void OnMouseEnter()
     {
         outlineRenderer.gameObject.SetActive(true);
-        Debug.Log("Mouse Entered");
     }
     public void OnMouseExit()
     {
-        outlineRenderer.gameObject.SetActive(false);
-        Debug.Log("Mouse Exit");
-    }
-
-    public void OnMouseOver()
-    {
-        Debug.Log("Mouse Over");
-
+        if (canInteract)
+        {
+            outlineRenderer.gameObject.SetActive(false);
+        }
     }
 
     public void OnMouseDown()
     {
-        Debug.Log("Mouse Down");
-
-        StartCoroutine(SetPlayerTarget());
-        StartCoroutine(PollPlayerPosition());
+        if (canInteract)
+        {
+            StartCoroutine(SetPlayerTarget());
+            StartCoroutine(PollPlayerPosition());
+        }
     }
     
     IEnumerator SetPlayerTarget()
@@ -73,8 +71,10 @@ public class InteractableObject : MonoBehaviour
         }
 
         if (playerHere)
+        {
+            canInteract = false;
             Interaction();
-
+        }
         yield return null;
     }
 
