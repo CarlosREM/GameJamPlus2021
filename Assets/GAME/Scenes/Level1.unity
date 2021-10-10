@@ -1759,6 +1759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5e5e78e63212a46ad8379f422bfc34, type: 3}
+--- !u!212 &634989597 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3605122014984384397, guid: dbc9409809f1f474b98a4da5a7a2ea05, type: 3}
+  m_PrefabInstance: {fileID: 1480690383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658775517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2295,7 @@ MonoBehaviour:
   - This feeling again...
   dialogueNum: 0
   seen: 0
+  destroyObject: 0
   isTrigger: 0
 --- !u!114 &763166491
 MonoBehaviour:
@@ -2310,6 +2316,7 @@ MonoBehaviour:
   - "I feel\u2026 good. Alive"
   dialogueNum: 0
   seen: 0
+  destroyObject: 0
   isTrigger: 0
 --- !u!114 &763166492
 MonoBehaviour:
@@ -3886,7 +3893,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e9901f8e8e5d8aa4c9fbbeec084aa581, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3605122015956560870, guid: dbc9409809f1f474b98a4da5a7a2ea05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dbc9409809f1f474b98a4da5a7a2ea05, type: 3}
 --- !u!4 &1480690384 stripped
 Transform:
@@ -6260,6 +6268,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8e1d38354db4044a214850430d0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2041131158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3605122015956560865, guid: dbc9409809f1f474b98a4da5a7a2ea05, type: 3}
+  m_PrefabInstance: {fileID: 1480690383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041131159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041131158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93441677bd89eab4886d779eed7ad7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  item: {fileID: 4849151869282490494, guid: 09f2b73a46d1e004bb4cea8225b66b1d, type: 3}
+  destroyObj: 1
+--- !u!114 &2041131160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041131158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0ca425de73aad4a9ee81eff5256ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineRenderer: {fileID: 634989597}
+  playerCheckTimeWindow: 5
 --- !u!4 &2092798172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8711080418846877781, guid: cb5e5e78e63212a46ad8379f422bfc34, type: 3}

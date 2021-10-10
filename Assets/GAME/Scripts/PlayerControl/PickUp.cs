@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
     private Inventory inventory;
     public string itemName;
     public GameObject item;
+    public bool destroyObj = false;
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -17,18 +18,23 @@ public class PickUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            for (int i=0; i<inventory.slots.Length; i++)
-            {
-                Debug.Log("Triggered");
-                if (inventory.isFull[i] == false)
-                {
-                    inventory.objNames[i] = itemName;
-                    inventory.isFull[i] = true;
-                    Instantiate(item, inventory.slots[i].transform, false);
-                    //Destroy(gameObject);
-                    break;
+            LoadToInventory();
+        }
+    }
 
-                }
+    public void LoadToInventory()
+    {
+        for (int i = 0; i < inventory.slots.Length; i++)
+        {
+            if (inventory.isFull[i] == false)
+            {
+                inventory.objNames[i] = itemName;
+                inventory.isFull[i] = true;
+                Instantiate(item, inventory.slots[i].transform, false);
+                
+                if (destroyObj) Destroy(gameObject);
+
+                break;
             }
         }
     }
