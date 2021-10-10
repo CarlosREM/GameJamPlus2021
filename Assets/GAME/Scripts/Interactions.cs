@@ -7,7 +7,7 @@ public class Interactions : InteractableObject
 {
     public Animator player;
     public Button next;
-    public Text dial;
+    public TMPro.TextMeshProUGUI dial;
     public string[] dialogues;
     private int dialogueNum = 0;
     
