@@ -31,7 +31,7 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] float InventoryShowTime;
 
     [Header("Paintings")]
-    [SerializeField] Transform[] paintingsArray;
+    [SerializeField] GameObject[] paintingsArray;
 
     [Header("Thought Arrays")]
     [SerializeField] GameObject thoughtsBegin;
@@ -166,15 +166,18 @@ public class OnMainLevelStart : MonoBehaviour
         switch(instance.lastLevel)
         {
             case 1:
-                newPosition = paintingsArray[0].position;
+                newPosition = paintingsArray[0].transform.position;
                 if (instance.levelsPassed == 1 && !instance.seenCinematics[0])
                 {
                     baul.SetActive(true);
                     instance.seenCinematics[0] = true;
+
+                    paintingsArray[0].SetActive(false);
+                    paintingsArray[1].SetActive(true);
                 }
                 break;
             case 2:
-                //newPosition = paintingsArray[1].position;
+                newPosition = paintingsArray[1].transform.position;
 
                 if (instance.levelsPassed == 2 && !instance.seenCinematics[1])
                 {
