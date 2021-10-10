@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CamVolume
+  - GameInstance
+  - PostProcessingGlobal
+  - Obstacle
+  - Interactable
   layers:
   - Default
   - TransparentFX
