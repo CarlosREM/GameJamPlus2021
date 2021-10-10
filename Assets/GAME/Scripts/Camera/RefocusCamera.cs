@@ -40,6 +40,11 @@ public class RefocusCamera : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
     }
 
+    public void SetCenterOffset(Vector2 newOffset)
+    {
+        centerOffset = new Vector3(newOffset.x, newOffset.y, centerOffset.z);
+    }
+
 
     public void Refocus(Transform target, Vector2 focusOffset, float camSize = -1, float duration = 1) {
         focusedObject = target;

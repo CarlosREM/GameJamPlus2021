@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Debug.Log(mousePosition);
         if (!noInput && Input.GetMouseButtonDown(0))
         {
             target = mousePosition;

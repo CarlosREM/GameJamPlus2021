@@ -15,21 +15,30 @@ public class InteractableObject : MonoBehaviour
         transform.position = new Vector3(transform.position.x,
                                         transform.position.y,
                                         transform.position.y / 10);
-        outlineRenderer.enabled = false;
+        outlineRenderer.gameObject.SetActive(false);
     }
 
-    //public void OnMouseEnter()
-    //{
-        //outlineRenderer.enabled = true;
-    //}
-    //public void OnMouseExit()
-    //{
-        //outlineRenderer.enabled = false;
-    //}
-
-
-    public void OnMouseDownEvent()
+    public void OnMouseEnter()
     {
+        outlineRenderer.gameObject.SetActive(true);
+        Debug.Log("Mouse Entered");
+    }
+    public void OnMouseExit()
+    {
+        outlineRenderer.gameObject.SetActive(false);
+        Debug.Log("Mouse Exit");
+    }
+
+    public void OnMouseOver()
+    {
+        Debug.Log("Mouse Over");
+
+    }
+
+    public void OnMouseDown()
+    {
+        Debug.Log("Mouse Down");
+
         StartCoroutine(SetPlayerTarget());
         StartCoroutine(PollPlayerPosition());
     }

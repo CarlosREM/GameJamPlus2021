@@ -26,6 +26,7 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] float fadeoutDuration = 1f;
     [SerializeField] float refocusDuration = 1f;
     [SerializeField] float playerEnterDelay = 1f;
+    [SerializeField] Vector2 offsetOnPlay = Vector2.zero;
 
 
     void Start()
@@ -41,7 +42,8 @@ public class OnMainLevelStart : MonoBehaviour
         {
             canvas.alpha = 1;
             GameInstance.Instance.GameStart = false;
-
+            
+            playerAnim.SetBool("InputEnabled", false);
             playerAnim.SetTrigger("Sit");
             StartCoroutine(ShowUI());
         }
@@ -49,6 +51,7 @@ public class OnMainLevelStart : MonoBehaviour
         {
             canvas.alpha = 0;
             RemoveBlur();
+            CenterCamera();
         }
     }
 
@@ -109,6 +112,8 @@ public class OnMainLevelStart : MonoBehaviour
         yield return new WaitForSeconds(playerEnterDelay);
 
         playerAnim.SetTrigger("Getup");
+        playerAnim.SetBool("InputEnabled", true);
+        CenterCamera();
 
         yield return null;
     }
@@ -118,5 +123,12 @@ public class OnMainLevelStart : MonoBehaviour
         GameObject.FindWithTag("PostProcessingGlobal")
             .GetComponent<CameraEffects>()
             .SetDepth(50, refocusDuration);
+    }
+
+    void CenterCamera()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera")
+            .GetComponent<RefocusCamera>()
+            .SetCenterOffset(offsetOnPlay);
     }
 }
