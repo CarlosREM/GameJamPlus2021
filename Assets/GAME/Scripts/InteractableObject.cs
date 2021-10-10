@@ -78,7 +78,7 @@ public class InteractableObject : MonoBehaviour
         yield return null;
     }
 
-    protected void Interaction()
+    protected virtual void Interaction()
     {
         Debug.Log("Interacting...");
     }
