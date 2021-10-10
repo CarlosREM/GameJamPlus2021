@@ -9,8 +9,7 @@ public class Interactions : InteractableObject
     public Button next;
     public TMPro.TextMeshProUGUI dial;
     public string[] dialogues;
-    private int dialogueNum = 0;
-    
+    public int dialogueNum = 0;
 
     protected override void Interaction()
     {
@@ -29,11 +28,17 @@ public class Interactions : InteractableObject
             player.SetBool("InputEnabled", true);
             dial.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
+
         }
-        else
+        else if(dialogueNum == dialogues.Length+1)
+        {
+            dialogueNum = 1;
+            dial.text = dialogues[dialogueNum];
+        }
+        else if (dialogueNum < dialogues.Length)
         {
             dial.text = dialogues[dialogueNum];
         }
-        
+
     }
 }
