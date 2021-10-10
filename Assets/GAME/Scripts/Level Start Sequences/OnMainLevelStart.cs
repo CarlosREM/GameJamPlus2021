@@ -28,6 +28,8 @@ public class OnMainLevelStart : MonoBehaviour
     [SerializeField] float playerEnterDelay = 1f;
     [SerializeField] Vector2 offsetOnPlay = Vector2.zero;
 
+    [Header("Paintings")]
+    [SerializeField] Transform[] paintingsArray;
 
     void Start()
     {
@@ -54,6 +56,7 @@ public class OnMainLevelStart : MonoBehaviour
             canvas.alpha = 0;
             RemoveBlur();
             CenterCamera();
+            PreviousLevelLocation(instance);
         }
     }
 
@@ -133,5 +136,26 @@ public class OnMainLevelStart : MonoBehaviour
         GameObject.FindGameObjectWithTag("MainCamera")
             .GetComponent<RefocusCamera>()
             .SetCenterOffset(offsetOnPlay);
+    }
+
+
+    void PreviousLevelLocation(GameInstance instance)
+    {
+        Debug.Log(instance.lastLevel);
+        Vector3 newPosition = Vector3.zero;
+        switch(instance.lastLevel)
+        {
+            case 1:
+                newPosition = paintingsArray[0].position;
+                break;
+
+            default:
+                Debug.Log("Last level invalid");
+                break;
+        }
+
+        PlayerControl player = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+        player.transform.position = newPosition;
+        player.SetTarget(newPosition);
     }
 }

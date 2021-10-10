@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23864927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.48, y: -0.3293, z: 0}
+  m_LocalPosition: {x: 4.48, y: -0.3293, z: 1}
   m_LocalScale: {x: 0.59213203, y: 0.5591084, z: 0.61484236}
   m_Children: []
   m_Father: {fileID: 0}
@@ -262,6 +262,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 10}
   m_EdgeRadius: 0
+--- !u!4 &102886196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 315204376355368692, guid: 1a17e5a5e57d60a42a98957f07f0d0a0, type: 3}
+  m_PrefabInstance: {fileID: 3915919367266165169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &158107024
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameStart: 0
-  lastLevel: 0
+  lastLevel: 1
 --- !u!4 &186034112
 Transform:
   m_ObjectHideFlags: 0
@@ -840,6 +845,8 @@ MonoBehaviour:
   refocusDuration: 1.5
   playerEnterDelay: 1
   offsetOnPlay: {x: 2, y: 1.5}
+  paintingsArray:
+  - {fileID: 102886196}
 --- !u!1 &1217317107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2264312117496998167, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f39f1149c5f535d40a826e5eba0f33fb, type: 3}
@@ -1641,7 +1648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 315204376355368689, guid: 1a17e5a5e57d60a42a98957f07f0d0a0, type: 3}
       propertyPath: m_Name
-      value: Frame
+      value: Frame 1
       objectReference: {fileID: 0}
     - target: {fileID: 315204376355368692, guid: 1a17e5a5e57d60a42a98957f07f0d0a0, type: 3}
       propertyPath: m_RootOrder
@@ -1795,6 +1802,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833087, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
+      propertyPath: GameStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
+      propertyPath: lastLevel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833089, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
