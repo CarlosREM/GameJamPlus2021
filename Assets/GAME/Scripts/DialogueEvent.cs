@@ -51,6 +51,7 @@ public class DialogueEvent : MonoBehaviour
             dialogueUI.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
             seen = true;
+            dialogueNum = 0;
             if (destroyObject)
             {
                 Destroy(gameObject);
