@@ -17,7 +17,7 @@ public class CameraEffects : MonoBehaviour
 
     void Start()
     {
-        volumeProfile = volume.profile;
+        //volumeProfile = volume.profile;
     }
 
 
@@ -26,7 +26,8 @@ public class CameraEffects : MonoBehaviour
         float blur = Mathf.Clamp(value, 50, 300);
 
         DepthOfField effectDoF;
-        if (volumeProfile.TryGet(out effectDoF))
+        Debug.Log("Changing depth of field...");
+        if (volume.profile.TryGet(out effectDoF))
         {
             StartCoroutine(DepthCoroutine(effectDoF, value, transitionDuration));
         }
