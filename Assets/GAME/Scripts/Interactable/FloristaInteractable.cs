@@ -10,7 +10,7 @@ public class FloristaInteractable : InteractableObject
 
     Animator floristaAnim;
 
-    [SerializeField] DoorObject gateDoor;
+    [SerializeField] FlowerGateInteractable gateDoor;
 
     int sequenceIndex = 0;
 

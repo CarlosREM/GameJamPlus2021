@@ -3488,7 +3488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: GameStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8961417226114833088, guid: d78b80d3f0fb3c5479b242d3304e8ae2, type: 3}
       propertyPath: lastLevel
