@@ -71,9 +71,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  next: {fileID: 0}
-  dial: {fileID: 0}
+  dialogueUI: {fileID: 0}
   dialogues:
   - Eh?
   - "Wasn\u2019t I just lying down in bed? What am I doing here?"
   dialogueNum: 0
+  seen: 0
+  destroyObject: 0
+  isTrigger: 1

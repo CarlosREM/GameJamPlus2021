@@ -33,6 +33,7 @@ public class DialogueEvent : MonoBehaviour
 
     public void StartDialogue()
     {
+        InteractableObject.canInteract = false;
         dialogueUI.gameObject.SetActive(true);
         next.gameObject.SetActive(true);
         player.SetBool("InputEnabled", false);
@@ -46,6 +47,7 @@ public class DialogueEvent : MonoBehaviour
         if (dialogueNum == dialogues.Length)
         {
             player.SetBool("InputEnabled", true);
+            InteractableObject.canInteract = true;
             dialogueUI.gameObject.SetActive(false);
             next.gameObject.SetActive(false);
             seen = true;

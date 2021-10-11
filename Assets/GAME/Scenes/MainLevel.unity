@@ -312,23 +312,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &163378760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8647713032781419124, guid: d7ba0208adf5c334b8729919b3935865, type: 3}
-  m_PrefabInstance: {fileID: 514475299}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &163378763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163378760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d372b290de3a07c4a818ccc683ef08c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &173242073 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3605122014984384397, guid: dbc9409809f1f474b98a4da5a7a2ea05, type: 3}
@@ -466,6 +449,10 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 143653887}
+    - target: {fileID: 5614583120380829952, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
+      propertyPath: destroyObject
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5614583120380829952, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
       propertyPath: dialogues.Array.size
       value: 1
@@ -970,7 +957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891298341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7178307, y: -1.8806583, z: 0}
+  m_LocalPosition: {x: -4.33, y: -1.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1189338327}
@@ -1227,8 +1214,9 @@ MonoBehaviour:
   InventoryUI: {fileID: 309405217}
   InventoryShowTime: 1
   paintingsArray:
-  - {fileID: 102886196}
-  thoughtsBegin: {fileID: 0}
+  - {fileID: 1899729906}
+  - {fileID: 1478634556}
+  thoughtsBegin: {fileID: 891298341}
   thoughts1Fails: []
   thoughts1Completed: []
   baul: {fileID: 1442810823}
@@ -2108,6 +2096,10 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 1124767340}
+    - target: {fileID: 5614583120380829952, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
+      propertyPath: destroyObject
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5614583120380829952, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
       propertyPath: dialogues.Array.size
       value: 1
@@ -3244,7 +3236,7 @@ PrefabInstance:
       objectReference: {fileID: 1805219948}
     - target: {fileID: 5614583120380829952, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
       propertyPath: destroyObject
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5614583120380829965, guid: cfe052ee26e758e49a522033e9c893ae, type: 3}
       propertyPath: m_Name
