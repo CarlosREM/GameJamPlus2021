@@ -62,11 +62,11 @@ public class OnMainLevelStart : MonoBehaviour
             canvas.alpha = 1;
             instance.GameStart = false;
             InteractableObject.canInteract = false;
-            
+            thoughtsBegin.SetActive(true);
+
             playerAnim.SetBool("InputEnabled", false);
             playerAnim.SetTrigger("Sit");
             StartCoroutine(ShowUI());
-            //PreviousLevelAction(instance);
         }
         else
         {
@@ -189,7 +189,6 @@ public class OnMainLevelStart : MonoBehaviour
                 }
                 break;
             default:
-                thoughtsBegin.SetActive(true);
                 Debug.Log("Last level invalid");
                 instance.lastLevel = 0;
                 break;
