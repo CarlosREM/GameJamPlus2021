@@ -11,6 +11,7 @@ public class DialogueButton : MonoBehaviour
 
     public void ActionOnClick()
     {
+        Debug.Log("AAAAAAA");
         if (diagEvent != null)
         {
             diagEvent.nextDialogue();
