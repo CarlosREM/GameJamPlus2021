@@ -948,7 +948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &891298342
 Transform:
   m_ObjectHideFlags: 0
@@ -1053,7 +1053,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e12862c8f9c8c424fb7b5741ae02ddf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   player: {fileID: 1955504782}
   dialogueUI: {fileID: 1124767340}
   dialogues:
-  - I've been to Level2...
+  - I... remember the smell of flowers...
   dialogueNum: 0
   seen: 0
   destroyObject: 0
@@ -2022,7 +2022,7 @@ MonoBehaviour:
   player: {fileID: 1955504782}
   dialogueUI: {fileID: 1124767340}
   dialogues:
-  - I'm going into Level2
+  - Oh, such greens! Looks like a lovely day...
   dialogueNum: 0
   seen: 0
   destroyObject: 0

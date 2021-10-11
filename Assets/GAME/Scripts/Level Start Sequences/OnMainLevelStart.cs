@@ -167,25 +167,43 @@ public class OnMainLevelStart : MonoBehaviour
         {
             case 1:
                 newPosition = paintingsArray[0].transform.position;
-                if (instance.levelsPassed == 1 && !instance.seenCinematics[0])
+                if (instance.levelsPassed == 1)
                 {
-                    baul.SetActive(true);
-                    instance.seenCinematics[0] = true;
-
                     paintingsArray[0].SetActive(false);
                     paintingsArray[1].SetActive(true);
+
+                    if (!instance.seenCinematics[0])
+                    {
+                        baul.SetActive(true);
+                        instance.seenCinematics[0] = true;
+                    }
+                    else
+                    {
+                        inventoryMain.isFull[0] = true;
+                        inventoryMain.objNames[0] = "baul";
+                        Instantiate(icons[0], inventoryMain.slots[0].transform, false);
+                    }
                 }
                 break;
             case 2:
+                paintingsArray[0].SetActive(false);
+                paintingsArray[1].SetActive(true);
+
                 newPosition = paintingsArray[1].transform.position;
 
-                if (instance.levelsPassed == 2 && !instance.seenCinematics[1])
+                inventoryMain.isFull[0] = true;
+                inventoryMain.objNames[0] = "baul";
+                Instantiate(icons[0], inventoryMain.slots[0].transform, false);
+
+                if (instance.levelsPassed == 2)
                 {
-                    inventoryMain.isFull[0] = true;
-                    inventoryMain.objNames[0] = "baul";
-                    Instantiate(icons[0], inventoryMain.slots[0].transform, false);
-                    photo.SetActive(true);
-                    instance.seenCinematics[1] = true;
+                    paintingsArray[1].SetActive(false);
+
+                    if (!instance.seenCinematics[1])
+                    {
+                        photo.SetActive(true);
+                        instance.seenCinematics[1] = true;
+                    }
                 }
                 break;
             default:
