@@ -7,41 +7,34 @@ public class PickUp : MonoBehaviour
     private Inventory inventory;
     public string itemName;
     public GameObject item;
-    private GameObject instanceItem;
-    private Vector2 target;
-    public float speed;
+    public bool destroyObj = false;
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 
     }
 
-    void Update()
-    {
-
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            for (int i=0; i<inventory.slots.Length; i++)
-            {
-                Debug.Log("Triggered");
-                if (inventory.isFull[i] == false)
-                {
-                    inventory.objNames[i] = itemName;
-                    if (inventory.HasItem(itemName))
-                    {
-                        Debug.Log("Item found");
-                    }
-                    inventory.isFull[i] = true;
-                    Instantiate(item, inventory.slots[i].transform, false);
-                    Destroy(gameObject);
-                    break;
+            LoadToInventory();
+        }
+    }
 
-                }
+    public void LoadToInventory()
+    {
+        for (int i = 0; i < inventory.slots.Length; i++)
+        {
+            if (inventory.isFull[i] == false)
+            {
+                inventory.objNames[i] = itemName;
+                inventory.isFull[i] = true;
+                Instantiate(item, inventory.slots[i].transform, false);
+                
+                if (destroyObj) Destroy(gameObject);
+
+                break;
             }
         }
     }

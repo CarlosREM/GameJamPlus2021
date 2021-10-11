@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Vector2 target;
+    public Vector2 target;
     public float speed;
     //public ParticleSystem mouseFx;
     private Vector2 mousePosition;
@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] bool noInput = false;
 
     Animator animator;
-    [SerializeField] SpriteRenderer characterSprite;
+    public SpriteRenderer characterSprite;
 
     void Start()
     {
